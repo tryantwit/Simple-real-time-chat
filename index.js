@@ -4,6 +4,9 @@ const app = express();
 app.set('views', './views');
 app.set('view engine', 'pug');
 
+// Setup directory for external javascript
+app.use(express.static(`${__dirname}/public`));
+
 app.get('/', (req, res) => {
   res.render('index', {});
 });
