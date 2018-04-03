@@ -4,6 +4,7 @@
   "description": "Real time web chat",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tim Ryan <tryan@valcom.com>",
@@ -12,5 +13,8 @@
     "express": "^4.16.3",
     "pug": "^2.0.3",
     "socket.io": "^2.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
   }
 }
