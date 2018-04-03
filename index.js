@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+// Setup pug as view engine.
 app.set('views', './views');
 app.set('view engine', 'pug');
 
