@@ -12,12 +12,4 @@ app.get('/', (req, res) => {
   res.render('index', {});
 });
 
-const io = require('socket.io').listen(app.listen(3001));
-console.log('Listening on port 3001');
-
-io.sockets.on('connection', (socket) => {
-  socket.emit('message', { message: 'Welcome to the chat' });
-  socket.on('send', (data) => {
-    io.sockets.emit('message', data);
-  });
-});
+module.exports = app;
