@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+const app = require('../index');
+const http = require('http');
+const socketHandler = require('../socket');
+const socketIo = require('socket.io');
+
+const port = (process.env.PORT || 3001);
+app.set('port', port);
+const node_env = (process.env.NODE_ENV || 'production');
+app.set('env', node_env);
+
+const server = http.createServer(app);
+const io = socketIo(server);
+
+socketHandler.start(io);
+
+server.listen(port);
+server.on('listening', onListening);
+
+function onListening() {
+  console.log(`Listening on port ${port}`);
+}
